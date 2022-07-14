@@ -26,6 +26,20 @@
    insertTextAtCursor(document.getElementById("texto"), L);
    document.getElementById("texto").focus();
    }
+   function myFunction() {
+    /* Get the text field */
+    var copyText = document.getElementById("texto");
+  
+    /* Select the text field */
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+  
+     /* Copy the text inside the text field */
+    navigator.clipboard.writeText(copyText.value);
+  
+    /* Alert the copied text */
+    alert("Copied the text: " + copyText.value);
+  }
   </script>
   <style type="text/css">
   html {
@@ -44,7 +58,9 @@
   }
   .agro {
   font-family: "Lucida Sans Unicode", Arial, sans-serif;
-  font-size: 14pt; 
+  font-size: 13pt;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
   }
   button {
   font-family: "Lucida Sans Unicode", Arial, sans-serif;
@@ -52,12 +68,31 @@
   width: 50px;
   height: 50px;
   font-size: 20pt; 
+  border:none;
+  background-color:#E4E4E4;
   border-radius: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+
   }
   shadow {
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   }
+.container{
+  overflow:hidden;}
+.box{
+  white-space:nowrap}
+.box div{
+  width:90px;
+  display:inline-block;}
+button.copy_but{
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 80px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
   
   </style>
  </head>
@@ -65,11 +100,22 @@
  <table width="100%" cellpadding="0">
    <tbody><tr>
     <td valign="middle" align="center" width="100%" bgcolor="#E4E4E4">  
-	<div class="shadow" style="margin:0; padding: 20px; width: 400px; height: 100px; background: #556; border-radius: 25px; clear:both; display: inline-block;">
-   <textarea id="texto" class="agro" style="width: 400px; max-width: 400px; height: 100px; max-height: 100px; border: 0; padding-left: 20px; padding-right: 20px;  padding-top: 10px;  padding-bottom: 10px;" placeholder="Транскрипция для английского языка, используемая для обучения. Наберите текст здесь с помощью виртуальной клавиатуры внизу, а затем скопируйте и вставьте в свой word-документ." spellcheck="false"></textarea><br>
-   </div><br>
-      <div style="text-align: center; width: 880px; border-radius: 20px; margin:5px; padding: 10px; display: inline-block; border-style: outset; background: #ccf;">
+
+
+    <div style="margin:0; padding: 20px; width: 600px; height: 200px; background: #E4E4E4; border-radius: 25px; clear:both; display: inline-block;">
+     <textarea id="texto" class="agro" style="width: 500px; max-width: 500px; height: 150px; max-height: 150px; border: 0; border-radius: 25px; padding-left: 20px; padding-right: 20px;  padding-top: 10px;  padding-bottom: 10px;" placeholder="Транскрипция для английского языка. Наберие текст с помощью виртуальной клавиатуры." spellcheck="false"></textarea><br>
+    </div>
+     <button onclick="myFunction()" class="copy_but" style="top:50px;"><img src="icons/remov.png" /></button>
+     <button onclick="myFunction()" class="copy_but" style="top:135px;"><img src="icons/imp.png" /></button>
+    
+    </td>
+  </tr>
+  <br>
+  <tr>
+  <td valign="middle" align="center" width="100%" bgcolor="#E4E4E4">
+      <div  style="text-align: center; margin-top: 100px; width: 880px; border-radius: 25px; margin:5px; padding: 10px; display: inline-block;  background: #E4E4E4; ">
 <button onclick="L = &#39;ɑ&#39;; scriptor()">ɑ</button>
+<button onclick="L = &#39;a&#39;; scriptor()">a</button>
 <button onclick="L = &#39;ʌ&#39;; scriptor()">ʌ</button>
 <button onclick="L = &#39;ə&#39;; scriptor()">ə</button>
 <button onclick="L = &#39;ɛ&#39;; scriptor()">ɛ</button>
@@ -82,10 +128,10 @@
 <button onclick="L = &#39;ɔ&#39;; scriptor()">ɔ</button>
 <button onclick="L = &#39;ɒ&#39;; scriptor()">ɒ</button>
 <button onclick="L = &#39;ʃ&#39;; scriptor()">ʃ</button>
+<br>
 <button onclick="L = &#39;ð&#39;; scriptor()">ð</button>
 <button onclick="L = &#39;θ&#39;; scriptor()">θ</button>
 <button onclick="L = &#39;ʤ&#39;; scriptor()">ʤ</button>
-<br>
 <button onclick="L = &#39;ʊ&#39;; scriptor()">ʊ</button>
 <button onclick="L = &#39;b&#39;; scriptor()">b</button>
 <button onclick="L = &#39;d&#39;; scriptor()">d</button>
@@ -97,12 +143,12 @@
 <button onclick="L = &#39;j&#39;; scriptor()">j</button>
 <button onclick="L = &#39;k&#39;; scriptor()">k</button>
 <button onclick="L = &#39;l&#39;; scriptor()">l</button>
+<br>
 <button onclick="L = &#39;m&#39;; scriptor()">m</button>
 <button onclick="L = &#39;n&#39;; scriptor()">n</button>
 <button onclick="L = &#39;p&#39;; scriptor()">p</button>
 <button onclick="L = &#39;r&#39;; scriptor()">r</button>
 <button onclick="L = &#39;ʧ&#39;; scriptor()">ʧ</button>
-<br>
 <button onclick="L = &#39;s&#39;; scriptor()">s</button>
 <button onclick="L = &#39;t&#39;; scriptor()">t</button>
 <button onclick="L = &#39;u&#39;; scriptor()">u</button>
@@ -110,22 +156,23 @@
 <button onclick="L = &#39;w&#39;; scriptor()">w</button>
 <button onclick="L = &#39;z&#39;; scriptor()">z</button>
 <button onclick="L = &#39;[&#39;; scriptor()">[</button>
-<button onclick="L = &#39; &#39;; scriptor()" style="width: 105px;">&nbsp;</button>
 <button onclick="L = &#39;]&#39;; scriptor()">]</button>
+<br>
+<button onclick="L = &#39;ˎ&#39;; scriptor()">ˎ</button>
+<button onclick="L = &#39;ˏ&#39;; scriptor()">ˏ</button>
+<button onclick="L = &#39;ˋ&#39;; scriptor()">ˋ</button>
+<button onclick="L = &#39;ˊ&#39;; scriptor()">ˊ</button>
+<button onclick="L = &#39;̬&#39;; scriptor()">̬</button>
+<button onclick="L = &#39;̭&#39;; scriptor()">̭</button>
+<button onclick="L = &#39;ǀ&#39;; scriptor()">ǀ</button>
+<button onclick="L = &#39;ǁ&#39;; scriptor()">ǁ</button>
 <button onclick="L = &#39;ˌ&#39;; scriptor()">ˌ</button>
 <button onclick="L = &#39;ˈ&#39;; scriptor()">ˈ</button>
 <button onclick="L = &#39;:&#39;; scriptor()">:</button>
-<button onclick="L = &#39;ː&#39;; scriptor()">ː</button>
-<button onclick="L = &#39;\n&#39;; scriptor()">↵</button>
-<!-- <button onclick="L = &#39;\n&#39;; scriptor()">↵</button> -->
-
-<button onclick="bspce(document.getElementById(&#39;texto&#39;))">←</button>
+<button onclick="L = &#39; &#39;; scriptor()" style="width: 105px;">&nbsp;</button>
 <br>
-<button onclick="L = &#39;↗&#39;; scriptor().sup()">↗</button>
-<button onclick="L = &#39;↘&#39;; scriptor()">↘</button>
-
+<button onclick="myFunction()" style="width: 105px;">Copy</button>
    </div><br>
-   <div style="width: 880px; margin:5px; display: inline-block;">
  </td>
    </tr>
   </tbody></table> 
