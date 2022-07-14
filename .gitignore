@@ -152,3 +152,4 @@ cython_debug/
 #.idea/
 *.jpg
 templates/Untitled-1.html
+*.txt
