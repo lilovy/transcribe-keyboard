@@ -153,3 +153,4 @@ cython_debug/
 *.jpg
 templates/Untitled-1.html
 *.txt
+templates/test.html

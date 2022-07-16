@@ -102,70 +102,36 @@
     box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
   }
   .container {  display: grid;
-      grid-template-columns: 1fr 0.8fr 1.2fr 0.7fr 0.7fr 1.6fr 1fr;
-      grid-template-rows: 1.2fr 1.1fr;
+      grid-template-columns: 1fr 0.8fr 0.8fr 1.1fr 0.7fr 1.6fr 1fr;
+      grid-template-rows: 0.5fr 1.1fr 0.5fr 2.2fr;
+      grid-auto-columns: 1fr;
+      grid-auto-rows: 1fr;
       gap: 0px 0px;
       grid-auto-flow: row;
       grid-template-areas:
-        ". textarea textarea textarea textarea but-2 ."
+        ". . . . . . ."
+        ". . . text b . ."
+        ". . . . . . ."
         ". keyboard keyboard keyboard keyboard keyboard .";
     }
     
-    
-    .textarea {  display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 0.3fr 1.9fr 0.8fr;
-      grid-auto-columns: 1fr;
-      gap: 0px 0px;
-      grid-auto-flow: row;
-      grid-template-areas:
-        ". . ."
-        ". . text"
-        ". . .";
-      grid-area: textarea;
-    }
+    .keyboard { grid-area: keyboard; }
     
     .text { grid-area: text; }
     
-    .but-2 {  display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 0.8fr 1.2fr;
-      gap: 0px 0px;
-      grid-auto-flow: row;
-      grid-template-areas:
-        "b-1"
-        "b-2";
-      grid-area: but-2;
-    }
-    
-    .b-1 {  display: grid;
+    .b {  display: grid;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 0.4fr 1.6fr;
+      grid-template-rows: 1fr 1fr;
       gap: 0px 0px;
       grid-auto-flow: row;
       grid-template-areas:
         ". ."
-        "bt1 .";
-      grid-area: b-1;
+        "b1 .";
+      grid-area: b;
     }
     
-    .bt1 { grid-area: bt1; }
+    .b1 { grid-area: b1; }
     
-    .b-2 {  display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 0.5fr 1.4fr 1.4fr;
-      gap: 0px 0px;
-      grid-auto-flow: row;
-      grid-template-areas:
-        ". ."
-        "bt2 ."
-        ". .";
-      grid-area: b-2;
-    }
-    
-    .bt2 { grid-area: bt2; }
-    
-    .keyboard { grid-area: keyboard; }
     
 button.copy_but{
   position: absolute;
@@ -183,17 +149,16 @@ button.copy_but{
    <tbody><tr>
     <td valign="middle" align="center" width="100%" bgcolor="#E4E4E4">
       <div class="container">
-          <div class="textarea" style="margin:0; padding: 20px; width: 600px; height: 200px; background: #E4E4E4; border-radius: 25px; clear:both; display: inline-block;">
-              <div class="text">
-                  <textarea id="texto" class="agro" style="width: 500px; max-width: 500px; height: 150px; max-height: 150px; border: 0; border-radius: 25px; padding-left: 20px; padding-right: 20px;  padding-top: 10px;  padding-bottom: 10px;" placeholder="keyboard for transcribing." spellcheck="false"></textarea><br></div>
+          <div class="text" style="margin:0; padding: 20px; width: 600px; height: 200px; background: #E4E4E4; border-radius: 25px; clear:both; display: inline-block;">
+              
+                  <textarea id="texto" class="agro" style="width: 500px; max-width: 500px; height: 150px; max-height: 150px; border: 0; border-radius: 25px; padding-left: 20px; padding-right: 20px;  padding-top: 10px;  padding-bottom: 10px;" placeholder="keyboard for transcribing." spellcheck="false"></textarea><br>
           </div>
-          <div class="but-2">
-              <div class="b-1">
-                  <div class="bt1">
-                      </div></div>
-              <div class="b-2">
-                  <div class="bt2">
-                      <button onclick="myFunction()" class="copy_but"><img src="https://i.ibb.co/48RmHLY/rem.png" /></button></div></div></div>
+          <div class="b">
+              <div class="b1">
+                  <button onclick="myFunction()" class="copy_but"><img src="https://i.ibb.co/48RmHLY/rem.png" />
+                  </button>
+              </div>
+          </div>
           <div class="keyboard" >
               <button onclick="L = &#39;ɑ&#39;; scriptor()">ɑ</button>
               <button onclick="L = &#39;a&#39;; scriptor()">a</button>
